@@ -2,45 +2,36 @@
 #include "Dio.h"
 #include "Port.h"
 #include "Mcu.h"
-#include "Gpt.h"
 
 /* System includes*/
-#include "system_S32K144.h"
+#include "S32K144.h"
 
-/* for Gpt_Ftm_ProcessCommonInterrupt() */
-#include "Gpt_Ftm.h"
-#include "Gpt_Irq.h"
+/* Application includes*/
+#include "scheduler.h"
 
-#define TICK_PERIOD	1000U
-
-void GptNotification_FTM(void)
-{
-    Dio_FlipChannel(DioConf_DioChannel_l_Low_Beam);
-}
 
 int main()
 {
+    // Initialize MCU, Ports, NVIC, and GPT
     Mcu_Init(&Mcu_Config);
     Mcu_InitClock(McuClockSettingConfig_0);
+
     Port_Init(&Port_Config);
 
-    //Det_Test_Case(10);
+    NVIC_Init();
 
     Gpt_Init(&Gpt_Config);
-
-    //Det_Test_Case(14);
-
     Gpt_EnableNotification(GptConf_GptChannelConfiguration_GptChannelConfiguration_0);
-    Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_0, TICK_PERIOD);
+    Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_0, TIMER_10MS_TICKS);
 
     Dio_WriteChannel(DioConf_DioChannel_l_Low_Beam, STD_HIGH);
     Dio_WriteChannel(DioConf_DioChannel_l_Low_Beam, STD_LOW);
 
-    //Det_Test_Case(13);
-    //Det_Test_Case(31);
-    //Det_Test_Case(22);
-
-    while (1)
+    int schedulerStatus = Scheduler_Run();
+    if (schedulerStatus != NO_ERROR)
     {
+        return schedulerStatus;
     }
+
+   return 0;
 }
