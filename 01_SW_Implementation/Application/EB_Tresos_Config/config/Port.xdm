@@ -992,14 +992,7 @@
                     </d:lst>
                   </d:ctr>
                 </d:lst>
-                <d:lst name="UnTouchedPortPin" type="MAP">
-                  <d:ctr name="PortPin_Reset_b" type="IDENTIFIABLE">
-                    <a:a name="IMPORTER_INFO" value="@REC"/>
-                    <d:var name="PortPinPcr" type="INTEGER" value="5">
-                      <a:a name="IMPORTER_INFO" value="@REC"/>
-                    </d:var>
-                  </d:ctr>
-                </d:lst>
+                <d:lst name="UnTouchedPortPin" type="MAP"/>
                 <d:lst name="DigitalFilter" type="MAP"/>
               </d:ctr>
               <d:ctr name="PortGeneral" type="IDENTIFIABLE">

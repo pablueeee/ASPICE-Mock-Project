@@ -785,7 +785,7 @@ extern "C" {
 /**
  * @brief Number of UnUsed pin array
 */
-#define PORT_MAX_UNUSED_PADS_U16   (68U)
+#define PORT_MAX_UNUSED_PADS_U16   (64U)
 
 /**
 * @brief Port driver Post-build configuration switch

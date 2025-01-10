@@ -275,24 +275,6 @@ extern "C" {
 #define DioConf_DioPort_hLight_A  ((uint8)0x00U)
 
 /**
-* @brief          Symbolic name for the channel l_High_Beam.
-*
-*/
-
-
-/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
-#define  DioConf_DioChannel_l_High_Beam ((uint16)0x000aU)
-
-/**
-* @brief          Symbolic name for the channel r_High_Beam.
-*
-*/
-
-
-/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
-#define  DioConf_DioChannel_r_High_Beam ((uint16)0x0004U)
-
-/**
 * @brief          Symbolic name for the channel flash_btn.
 *
 */
@@ -354,24 +336,6 @@ extern "C" {
 #define DioConf_DioPort_hLight_C  ((uint8)0x02U)
 
 /**
-* @brief          Symbolic name for the channel l_Low_Beam.
-*
-*/
-
-
-/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
-#define  DioConf_DioChannel_l_Low_Beam ((uint16)0x0045U)
-
-/**
-* @brief          Symbolic name for the channel r_Low_Beam.
-*
-*/
-
-
-/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
-#define  DioConf_DioChannel_r_Low_Beam ((uint16)0x0044U)
-
-/**
 * @brief          Symbolic name for the channel hLight_btn.
 *
 */
@@ -388,6 +352,42 @@ extern "C" {
 
 /** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
 #define  DioConf_DioChannel_hLight_Beam_btn ((uint16)0x004cU)
+
+/**
+* @brief          Symbolic name for the channel l_Low_Beam.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_l_Low_Beam ((uint16)0x0047U)
+
+/**
+* @brief          Symbolic name for the channel r_Low_Beam.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_r_Low_Beam ((uint16)0x0046U)
+
+/**
+* @brief          Symbolic name for the channel l_High_Beam.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_l_High_Beam ((uint16)0x004eU)
+
+/**
+* @brief          Symbolic name for the channel r_High_Beam.
+*
+*/
+
+
+/** @violates @ref Dio_Cfg_H_REF_1 The used compilers use more than 31 chars for identifiers. */
+#define  DioConf_DioChannel_r_High_Beam ((uint16)0x0043U)
 
 /* ---------- sLight_btns ---------- */
 
