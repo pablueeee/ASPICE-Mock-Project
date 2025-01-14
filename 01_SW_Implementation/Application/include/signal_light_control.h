@@ -6,4 +6,8 @@
 
 #include "error_codes.h"
 
+// Function Prototypes
+
+int SignalLightContol_Run(uint16_t *systemState);
+
 #endif

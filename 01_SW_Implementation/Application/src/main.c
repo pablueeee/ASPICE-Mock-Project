@@ -24,8 +24,8 @@ int main()
     Gpt_EnableNotification(GptConf_GptChannelConfiguration_GptChannelConfiguration_0);
     Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_0, TIMER_10MS_TICKS);
 
-    Dio_WriteChannel(DioConf_DioChannel_l_Low_Beam, STD_HIGH);
-    Dio_WriteChannel(DioConf_DioChannel_l_Low_Beam, STD_LOW);
+//    Dio_WriteChannel(DioConf_DioChannel_r_Low_Beam, STD_HIGH);
+//    Dio_WriteChannel(DioConf_DioChannel_r_Low_Beam, STD_LOW);
 
     int schedulerStatus = Scheduler_Run();
     if (schedulerStatus != NO_ERROR)

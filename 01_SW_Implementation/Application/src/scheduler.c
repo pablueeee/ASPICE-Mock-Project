@@ -11,18 +11,24 @@ int Scheduler_Run(void)
 
     while (true)
     {
-        time_segment = global_time % 30;       
+        time_segment = global_time % 40;       
+
+        if (INPUT_MONITORING_SEGMENT_MIN <= time_segment &&
+            INPUT_MONITORING_SEGMENT_MAX >= time_segment)
+        {
+            nReturn = InputMonitoring_Run(&systemState);
+        }
 
         if (HEAD_LIGHT_CONTROL_SEGMENT_MIN <= time_segment &&
             HEAD_LIGHT_CONTROL_SEGMENT_MAX >= time_segment)
         {
-            nReturn = HeadLightContol_Run(systemState);
+            nReturn = HeadLightContol_Run(&systemState);
         }
         
         else if (SIGNAL_LIGHT_CONTROL_SEGMENT_MIN <= time_segment &&
                  SIGNAL_LIGHT_CONTROL_SEGMENT_MAX >= time_segment)
         {
-            nReturn = SignalLightContol_Run(systemState);
+            nReturn = SignalLightContol_Run(&systemState);
         }
 
         else if (TAIL_LIGHT_CONTROL_SEGMENT_MIN <= time_segment &&

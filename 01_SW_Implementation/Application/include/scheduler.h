@@ -12,22 +12,26 @@
 
 #include "error_codes.h"
 #include "states.h"
+#include "input_monitoring.h"
 #include "head_light_control.h"
 #include "signal_light_control.h"
 #include "tail_light_control.h"
 
-#define HEAD_LIGHT_CONTROL_SEGMENT_MIN              0
-#define HEAD_LIGHT_CONTROL_SEGMENT_MAX              9
+#define INPUT_MONITORING_SEGMENT_MIN            0
+#define INPUT_MONITORING_SEGMENT_MAX            9
 
-#define SIGNAL_LIGHT_CONTROL_SEGMENT_MIN            10
-#define SIGNAL_LIGHT_CONTROL_SEGMENT_MAX            19
+#define HEAD_LIGHT_CONTROL_SEGMENT_MIN          10
+#define HEAD_LIGHT_CONTROL_SEGMENT_MAX          19
 
-#define TAIL_LIGHT_CONTROL_SEGMENT_MIN              20
-#define TAIL_LIGHT_CONTROL_SEGMENT_MAX              29
+#define SIGNAL_LIGHT_CONTROL_SEGMENT_MIN        20
+#define SIGNAL_LIGHT_CONTROL_SEGMENT_MAX        29
+
+#define TAIL_LIGHT_CONTROL_SEGMENT_MIN          30
+#define TAIL_LIGHT_CONTROL_SEGMENT_MAX          39
 
 #define FTM0_PRIORITY                           1 
 
-#define TIMER_10MS_TICKS                     10000    // Define 1ms timer value
+#define TIMER_10MS_TICKS                        10000    // Define 10ms timer value
 
 int Scheduler_Run(void);
 void GptNotification_FTM(void);

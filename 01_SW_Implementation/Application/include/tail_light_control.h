@@ -6,4 +6,8 @@
 
 #include "error_codes.h"
 
+// Function Prototypes
+
+int TailLightContol_Run(uint16_t systemState);
+
 #endif

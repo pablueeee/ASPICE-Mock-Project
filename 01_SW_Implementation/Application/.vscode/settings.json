@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "gpt_ftm.h": "c"
+        "gpt_ftm.h": "c",
+        "input_monitoring.h": "c"
     }
 }
