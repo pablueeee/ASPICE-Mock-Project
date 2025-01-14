@@ -10,7 +10,7 @@
 #include "states.h"
 
 // Function protorypes
-int HeadLightContol_Run(uint16_t *systemState);
+int HeadLightContol_Run(uint16_t systemState);
 int hLightTurnOff(void);
 int hLightTurnOn(void);
 int hLightHighBeamOn(void);

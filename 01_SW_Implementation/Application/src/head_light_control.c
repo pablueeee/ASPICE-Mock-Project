@@ -1,9 +1,9 @@
 // head_light_control.c
 #include "head_light_control.h"
 
-int HeadLightContol_Run(uint16_t *systemState)
+int HeadLightContol_Run(uint16_t systemState)
 {
-  uint16_t hLightState = *systemState & HEAD_LIGHT_MASK;
+  uint16_t hLightState = systemState & HEAD_LIGHT_MASK;
 
   switch(hLightState)
   {

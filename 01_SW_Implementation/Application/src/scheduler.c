@@ -1,17 +1,21 @@
 #include "scheduler.h"
 volatile uint64_t global_time = 0;
+volatile uint64_t app_time = 0;
 
 int Scheduler_Run(void)
 {
     int nReturn = -1;
     uint16_t systemState = INITIAL_STATE;
     uint8_t time_segment = 0;
+    uint8_t sLight_timer = 0;
 
     NVIC_Init();
 
     while (true)
     {
-        time_segment = global_time % 40;       
+        time_segment = global_time % 25;     
+        sLight_timer = app_time % 4;
+        systemState = (systemState & ~SIGNAL_LIGHT_TIMER_MASK) | (sLight_timer << 4);
 
         if (INPUT_MONITORING_SEGMENT_MIN <= time_segment &&
             INPUT_MONITORING_SEGMENT_MAX >= time_segment)
@@ -22,13 +26,13 @@ int Scheduler_Run(void)
         if (HEAD_LIGHT_CONTROL_SEGMENT_MIN <= time_segment &&
             HEAD_LIGHT_CONTROL_SEGMENT_MAX >= time_segment)
         {
-            nReturn = HeadLightContol_Run(&systemState);
+            nReturn = HeadLightContol_Run(systemState);
         }
         
         else if (SIGNAL_LIGHT_CONTROL_SEGMENT_MIN <= time_segment &&
                  SIGNAL_LIGHT_CONTROL_SEGMENT_MAX >= time_segment)
         {
-            nReturn = SignalLightContol_Run(&systemState);
+            nReturn = SignalLightContol_Run(systemState);
         }
 
         else if (TAIL_LIGHT_CONTROL_SEGMENT_MIN <= time_segment &&
@@ -49,7 +53,11 @@ int Scheduler_Run(void)
 // GPT callback function
 void GptNotification_FTM(void)
 {
-        global_time++;
+    global_time++;
+    if(global_time%25 == 0)
+    {
+        app_time++;
+    }
 }
 
 void NVIC_Init (void)

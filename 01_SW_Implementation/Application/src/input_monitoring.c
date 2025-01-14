@@ -54,6 +54,19 @@ int InputMonitoring_Run(uint16_t *systemState)
     tempState |= HEAD_LIGHT_HIGH_BEAM;
   }
 
+  if(hazard)
+  {
+    tempState |= SIGNAL_LIGHT_HAZARD;
+  }
+  else if(turnLeftTrigger)
+  {
+    tempState |= SIGNAL_LIGHT_TURN_LEFT;
+  }
+  else if(turnRightTrigger)
+  {
+    tempState |= SIGNAL_LIGHT_TURN_RIGHT;
+  }
+
 // set systemState here
 *systemState = tempState;
 

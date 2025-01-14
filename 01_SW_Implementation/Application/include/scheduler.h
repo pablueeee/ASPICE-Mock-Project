@@ -18,16 +18,16 @@
 #include "tail_light_control.h"
 
 #define INPUT_MONITORING_SEGMENT_MIN            0
-#define INPUT_MONITORING_SEGMENT_MAX            9
+#define INPUT_MONITORING_SEGMENT_MAX            4
 
-#define HEAD_LIGHT_CONTROL_SEGMENT_MIN          10
-#define HEAD_LIGHT_CONTROL_SEGMENT_MAX          19
+#define HEAD_LIGHT_CONTROL_SEGMENT_MIN          5
+#define HEAD_LIGHT_CONTROL_SEGMENT_MAX          9
 
-#define SIGNAL_LIGHT_CONTROL_SEGMENT_MIN        20
-#define SIGNAL_LIGHT_CONTROL_SEGMENT_MAX        29
+#define SIGNAL_LIGHT_CONTROL_SEGMENT_MIN        10
+#define SIGNAL_LIGHT_CONTROL_SEGMENT_MAX        14
 
-#define TAIL_LIGHT_CONTROL_SEGMENT_MIN          30
-#define TAIL_LIGHT_CONTROL_SEGMENT_MAX          39
+#define TAIL_LIGHT_CONTROL_SEGMENT_MIN          15
+#define TAIL_LIGHT_CONTROL_SEGMENT_MAX          20
 
 #define FTM0_PRIORITY                           1 
 
