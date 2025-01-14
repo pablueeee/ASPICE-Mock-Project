@@ -43,6 +43,7 @@ int hLightTurnOff(void)
   Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_r_High_Beam, STD_LOW);
   Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_l_Low_Beam, STD_LOW);
   Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_r_Low_Beam, STD_LOW);
+
     
   if(Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_l_High_Beam) != STD_LOW ||
       Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_r_High_Beam) != STD_LOW ||
@@ -63,11 +64,15 @@ int hLightTurnOn(void)
   Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_r_High_Beam, STD_LOW);
   Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_l_Low_Beam, STD_HIGH);
   Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_r_Low_Beam, STD_HIGH);
+  Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_l_tLight, STD_HIGH);
+  Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_r_tLight, STD_HIGH);
     
   if(Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_l_High_Beam) != STD_LOW ||
       Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_r_High_Beam) != STD_LOW ||
       Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_l_Low_Beam) != STD_HIGH ||
-      Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_r_Low_Beam) != STD_HIGH)
+      Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_r_Low_Beam) != STD_HIGH ||
+      Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_l_tLight) != STD_HIGH ||
+      Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_r_tLight) != STD_HIGH)
   {
       return HEAD_LIGHT_CONTROL_ERROR;
   }

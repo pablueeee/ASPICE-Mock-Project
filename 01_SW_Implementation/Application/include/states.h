@@ -23,6 +23,11 @@
 #define TIMER_500_MS                    (0X0020)     // 0000 0000 0010 0000
 #define TIMER_750_MS                    (0X0030)     // 0000 0000 0011 0000
 
+#define TAIL_LIGHT_MASK                 (0X00C0)     // 0000 0000 1100 0000
+#define REVERSE_LIGHT_ON				(0X0040)     // 0000 0000 0100 0000
+#define BRAKE_LIGHT_ON  				(0X0080)	 // 0000 0000 1000 0000
+#define TAIL_LIGHT_OFF                  (0X0000)     // 0000 0000 0000 0000
+
 // others
 #define INITIAL_STATE                   (0x0000)     // 0000 0000 0000 0000
 

@@ -3,6 +3,7 @@
 
 int SignalLightContol_Run(uint16_t systemState)
 {
+
   uint16_t sLightState = systemState & SIGNAL_LIGHT_MASK;
   uint16_t sLightTime = systemState & SIGNAL_LIGHT_TIMER_MASK;
 
@@ -127,11 +128,15 @@ int sLightHazard(uint16_t time)
     Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_front_r, STD_HIGH);
     Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_back_l, STD_HIGH);
     Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_back_r, STD_HIGH);
-      
+    Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_l_tLight, STD_HIGH);
+    Dio_WriteChannel((Dio_ChannelType)DioConf_DioChannel_r_tLight, STD_HIGH);
+
     if(Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_front_l) != STD_HIGH ||
         Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_front_r) != STD_HIGH ||
         Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_back_l) != STD_HIGH ||
-        Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_back_r) != STD_HIGH)
+        Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_back_r) != STD_HIGH ||
+        Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_l_tLight) != STD_HIGH ||
+        Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_r_tLight) != STD_HIGH)
     {
         return SIGNAL_LIGHT_CONTROL_ERROR;
     }

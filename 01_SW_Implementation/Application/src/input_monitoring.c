@@ -42,6 +42,35 @@ int InputMonitoring_Run(uint16_t *systemState)
     return HAZARD_BTN_READ_FAILED; 
   }
 
+  uint16_t brakeStatus = Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_brake_btn);
+  if (brakeStatus == DIO_READ_FAILURE)
+  {
+    return TAIL_LIGHT_CONTROL_ERROR; 
+  }
+  bool curr_brakeStatus = (brakeStatus != 0);
+
+  uint16_t reverseStatus = Dio_ReadChannel((Dio_ChannelType)DioConf_DioChannel_reverse_btn);
+  if (reverseStatus == DIO_READ_FAILURE)
+  {
+    return TAIL_LIGHT_CONTROL_ERROR; 
+  }
+  bool curr_reverseStatus = (reverseStatus != 0);
+
+  if (curr_brakeStatus)
+  {
+	  isBrakePressed = true;
+  }
+  else
+  {
+      isBrakePressed = false;
+  }
+
+  if (curr_reverseStatus && !prev_reverseStatus)
+  {
+	  isReversePressed = !isReversePressed;
+  }
+  prev_reverseStatus = curr_reverseStatus;
+
   // set temp state
   uint16_t tempState = 0;
 
@@ -65,6 +94,20 @@ int InputMonitoring_Run(uint16_t *systemState)
   else if(turnRightTrigger)
   {
     tempState |= SIGNAL_LIGHT_TURN_RIGHT;
+  }
+
+  if(isBrakePressed)
+  {
+	tempState = tempState | BRAKE_LIGHT_ON;
+  }
+  else
+  {
+	tempState = tempState & ~BRAKE_LIGHT_ON;
+  }
+
+  if(isReversePressed)
+  {
+	tempState = tempState | REVERSE_LIGHT_ON;
   }
 
 // set systemState here
